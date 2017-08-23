@@ -4,9 +4,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## How to run
 
-Run `ng build`
-Then run `node server.js`
-Navigate to `http://localhost:3000/`
+- Run `npm install` to install dependencies
+- Run `ng build` to build the app
+- Then run `node server.js` to run the app
+- Navigate to `http://localhost:3000/` to use the app
 
 ## Build
 
