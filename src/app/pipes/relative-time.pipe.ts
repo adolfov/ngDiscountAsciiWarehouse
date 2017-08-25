@@ -16,7 +16,6 @@ export class RelativeTimePipe implements PipeTransform {
   transform(value: Date): string {
     const date = momentConstructor(value);
     const A_WEEK_AGO = momentConstructor().clone().subtract(7, 'days');
-    console.log(date);
     if (date.isAfter(A_WEEK_AGO)) {
       this.text = date.from(momentConstructor(), false);
     } else {

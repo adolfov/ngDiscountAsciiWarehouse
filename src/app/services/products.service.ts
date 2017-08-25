@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 
-import { Product } from '../../app.component';
+import { Product } from '../app.component';
 import { HttpEventType } from '@angular/common/http';
 import { HttpResponse } from '@angular/common/http';
 
@@ -22,16 +22,7 @@ export class ProductsService {
   getProducts(limit: number, skip: number, sort: string): Observable<Product[]> {
     return Observable.create(observer => {
 
-      let requestUrl = this.productsUrl;
-      if (limit) {
-        requestUrl += '?limit=' + limit;
-      }
-      if (skip) {
-        requestUrl += '?skip=' + skip;
-      }
-      if (sort) {
-        requestUrl += '?sort=' + sort;
-      }
+      const requestUrl = this.productsUrl + '?limit=' + limit + '&skip=' + skip + '&sort=' + sort;
 
       this.http.get(requestUrl, { responseType: 'text' })
         .subscribe(results => {

@@ -1,11 +1,24 @@
-<md-select placeholder="Sort" [(ngModel)]="sort" (ngModelChange)="getProducts()">
+<md-select class="sort-select" placeholder="Sort by" [(ngModel)]="sort" (ngModelChange)="reset()">
   <md-option value="size">Size</md-option>
   <md-option value="price">Price</md-option>
   <md-option value="id">Id</md-option>
 </md-select>
 
-<md-grid-list cols="4" rowHeight="100px">
-  <md-grid-tile *ngFor="let product of products">
-    <app-product [product]="product"></app-product>
-  </md-grid-tile>
+<md-grid-list cols="4" rowHeight="160px">
+  <div *ngFor="let product of products; index as i">
+    <md-grid-tile *ngIf="i % 20 == 0" colspan="4">
+      <img [src]="getAdUrl(i)">
+    </md-grid-tile>
+    <md-grid-tile>
+      <app-product [product]="product"></app-product>
+    </md-grid-tile>
+  </div>
 </md-grid-list>
+
+<md-card>
+  <ngx-loading [show]="loading"></ngx-loading>
+</md-card>
+
+<!-- <md-card>
+  <md-card-content>~ end of catalogue ~</md-card-content>
+</md-card> -->
