@@ -13,13 +13,17 @@ import { ProductComponent } from './components/product/product.component';
 
 import { ProductsService } from './services/products/products.service';
 import { AdsService } from './services/ads/ads.service';
+import { PricePipe } from './pipes/price.pipe';
+import { RelativeTimePipe } from './pipes/relative-time.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ProductsComponent,
-    ProductComponent
+    ProductComponent,
+    PricePipe,
+    RelativeTimePipe
   ],
   imports: [
     BrowserModule,

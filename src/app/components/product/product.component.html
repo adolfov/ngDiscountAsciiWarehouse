@@ -1,4 +1,5 @@
-<p [ngStyle]="{'font-style': product.size}">
+<div [ngStyle]="{'font-size': product.size + 'px'}">
   {{ product.face }}
-</p>
-<small>{{ product.price }}</small>
+</div>
+<small>{{ product.price | price }}</small>
+<small>{{ product.date | relativeTime }}</small>
