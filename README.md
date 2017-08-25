@@ -1,3 +1,21 @@
+## What I did
+
+- I implemented ALL features except for "pre-emptively fetch the next batch of results".
+- I used:
+    - **angular 4** as the main framework
+    - **angular material** for the grid and select
+    - **moment** to handle dates on the custom pipe
+    - **ngx-loading** for the loading indicator
+    - **express** to serve the api and static angular
+- I created 3 components:
+    - A header component
+    - a Products component that contains the grid and sort selector
+    - a Product component that contains each product
+- I created 2 pipes:
+    - a Price pipe that formats the price
+    - a RelativeTime pipe that formats the date
+- I implemented a Products service that consumes the api
+- I implemented some unit tests for the pipes and Products service
 
 ## How to run
 
