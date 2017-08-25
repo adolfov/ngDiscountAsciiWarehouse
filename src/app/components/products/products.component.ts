@@ -12,12 +12,19 @@ import { Product } from '../../app.component';
 export class ProductsComponent implements OnInit {
 
   products: Product[];
+  sort: string;
 
   constructor(private productsService: ProductsService) {
+    this.sort = 'id';
   }
 
   ngOnInit() {
-    this.productsService.getProducts(1, 1, 'a').subscribe(
+    this.getProducts();
+  }
+
+  getProducts() {
+    this.productsService.getProducts(10, 0, this.sort)
+    .subscribe(
       (data: Product[]) => {
         this.products = data;
       }
