@@ -50,7 +50,7 @@ export class ProductsComponent implements OnInit {
   }
 
   getAdUrl(index) {
-    return '/ad/?r=' + index;
+    return '/ad?r=' + index;
   }
 
   init() {
