@@ -1,18 +1,22 @@
-# NgDiscountAsciiWarehouse
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.1.
 
 ## How to run
+
+### Easy way
+
+- Run `npm install` to install dependencies
+- Run `npm run go` to build and run the app
+
+### Step by step
 
 - Run `npm install` to install dependencies
 - Run `ng build` to build the app
 - Then run `node server.js` to run the app
+
+## Access app
+
 - Navigate to `http://localhost:3000/` to use the app
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
+TODO:
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
