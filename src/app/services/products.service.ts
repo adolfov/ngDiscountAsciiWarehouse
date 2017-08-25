@@ -26,17 +26,21 @@ export class ProductsService {
 
       this.http.get(requestUrl, { responseType: 'text' })
         .subscribe(results => {
-          const data = results.split('\n');
-          if (!data[ data.length - 1 ]) {
-            // remove last empty line
-            data.pop();
-          }
-          observer.next(
-            // convert text lines to json array
-            data.map(function(product) {
-              return JSON.parse(product);
+          if (results) {
+            const data = results.split('\n');
+            if (!data[ data.length - 1 ]) {
+              // remove last empty line
+              data.pop();
             }
-          ));
+            observer.next(
+              // convert text lines to json array
+              data.map(function(product) {
+                return JSON.parse(product);
+              }
+            ));
+          } else {
+            observer.next();
+          }
         });
     });
   }

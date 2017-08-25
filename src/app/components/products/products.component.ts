@@ -13,11 +13,12 @@ export class ProductsComponent implements OnInit {
 
   products: Product[];
 
-  public sort: string;
+  sort: string;
   limit: number;
   skip: number;
 
-  public loading = false;
+  loading = false;
+  noMoreProducts = false;
 
   constructor(private productsService: ProductsService) {
   }
@@ -31,14 +32,18 @@ export class ProductsComponent implements OnInit {
     this.productsService.getProducts(this.limit, this.skip, this.sort)
     .subscribe(
       (data: Product[]) => {
-        this.products.push(...data);
+        if (data) {
+          this.products.push(...data);
+        } else {
+          this.noMoreProducts = true;
+        }
         this.loading = false;
       }
     );
   }
 
   getMoreProducts() {
-    if (!this.loading) {
+    if (!this.loading && !this.noMoreProducts) {
       this.skip += this.limit;
       this.getProducts();
     }
